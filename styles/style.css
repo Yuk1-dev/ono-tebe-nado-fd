@@ -1,4 +1,4 @@
-/*                         общие стили контактов                                          */
+/*                          общие стили контактов                                          */
 
 .contact {
   display: flex;
@@ -12,7 +12,7 @@
 
 .contact a {
   text-decoration: underline;
-  color: #000;
+  color: black  ;
 }
 
 .contact p {
@@ -30,7 +30,7 @@ height: 3028px;
 
 a {
   text-decoration: underline;
-  color: #000;
+  color: black;
 }
 
 /* шапка */
@@ -97,7 +97,7 @@ a {
   margin: 0;
 }
 
-/*              Второй блок               */
+/*                                            Второй блок                              */
 
 .cover_section{
 position: relative;
@@ -132,8 +132,7 @@ justify-content: space-between;
 .title_cover{
 display: flex;
 flex-direction: column;
-
-gap: 10px
+gap: 12px
 }
 .title_cover ul{
 list-style: none;
@@ -199,7 +198,7 @@ cursor: pointer;
 text-transform: uppercase;
 }
 
-/*               Третий блок                  */
+/*                                     Третий блок                           */
 
 .lots {
   margin: 180px 24px 173px 24px;
