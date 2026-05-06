@@ -1,5 +1,7 @@
 /*                         общие стили контактов                                          */
 
+/*                         общие стили контактов                                          */
+
 .contact {
   display: flex;
   flex-direction: column;
@@ -83,11 +85,12 @@ a {
 .header__logo {
   justify-self: center;
   display: block;
+  width: 148px;
 }
 
 .logo_header {
   display: block;
-  width: 148px;
+  width: 100%;
   height: auto;
 }
 
@@ -104,7 +107,7 @@ a {
   position: relative;
   width: 1100px;
   min-height: 757px;
-  background-image: url('/images/cover.jpg');
+  background-image: url('../images/cover.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -193,7 +196,6 @@ a {
 }
 
 .button {
-  margin-top: 0;
   font-size: 22px;
   width: 256px;
   height: 51px;
@@ -219,6 +221,14 @@ a {
   position: relative;
   background-size: cover;
   background-position: center;
+  display: flex;
+}
+
+.lots_item article {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
 }
 
 .lots_h1 {
@@ -232,31 +242,6 @@ a {
   display: flex;
   gap: 25px;
   margin-bottom: 34px;
-}
-
-.lots_overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  opacity: 0.6;
-  z-index: 1;
-}
-
-.lots_item {
-  width: 334px;
-  height: 596px;
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-}
-
-.lots_item article {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
 }
 
 .lots_overlay {
@@ -406,7 +391,6 @@ a {
 
 .footer .anchor {
   justify-self: center;
-  padding-left: 0;
 }
 
 .footer .anchor ul {
@@ -415,13 +399,11 @@ a {
   align-items: center;
   gap: 0;
   font-size: 18px;
-  line-height: 1.38;
+  line-height: 1.4;
 }
 
 .footer .contact_links {
   justify-self: end;
-  align-self: start;
-  padding-top: 0;
 }
 
 .footer .contact_links ul {
