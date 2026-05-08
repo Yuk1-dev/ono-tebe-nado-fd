@@ -1,33 +1,20 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* ===== ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ АУКЦИОНА ===== */
 
-body {
-  width: 1100px;
-  margin: 0 auto;
-  font-family: 'Raleway', sans-serif;
-  background-color: #fff;
-}
-
-a {
-  text-decoration: underline;
-  color: #000;
-}
-
+/* ----- АКТИВНАЯ ССЫЛКА В МЕНЮ ----- */
 .active-nav-link {
   text-decoration: none;
   cursor: default;
   pointer-events: none;
 }
 
+/* ----- ОБЩИЙ СТИЛЬ ДЛЯ АДРЕСА ----- */
 .address-common {
   display: flex;
   flex-direction: column;
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
-  line-height: 1.4;
+  line-height: 1.35;
+  letter-spacing: 0.2px;
   text-underline-offset: 4px;
 }
 
@@ -40,6 +27,7 @@ a {
   margin: 0;
 }
 
+/* ----- HEADER ----- */
 .header {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -72,9 +60,12 @@ a {
 }
 
 .header-nav-list a {
-  font-size: 18px;
-  line-height: 1;
+  font-size: 16px;
+  line-height: 1.2;
+  letter-spacing: 0.3px;
   text-underline-offset: 3px;
+  text-decoration: underline;
+  color: #000;
 }
 
 .header-logo {
@@ -94,6 +85,7 @@ a {
   width: 260px;
 }
 
+/* ----- COVER (СЕКЦИЯ С ЗАТЕМНЕНИЕМ) ----- */
 .cover-section {
   position: relative;
   width: 100%;
@@ -173,8 +165,10 @@ a {
   font-size: 22px;
   text-transform: uppercase;
   cursor: pointer;
+  font-family: inherit;
 }
 
+/* ----- LOTS (КАРТОЧКИ ЛОТОВ) ----- */
 .lots {
   padding: 0 24px;
   margin: 180px 0 173px;
@@ -237,17 +231,19 @@ a {
 .lot-card-title {
   color: #fff;
   font-size: 22px;
-  font-weight: bold;
+  font-weight: 700;
   text-transform: uppercase;
   text-decoration: underline;
-  line-height: 1.2;
-  margin-bottom: 20px;
+  line-height: 1.25;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
 }
 
 .lot-card-text {
   color: #fff;
-  font-size: 20px;
+  font-size: 20x;
   line-height: 1.2;
+  letter-spacing: 0.2px;
 }
 
 .lot-card:hover .overlay {
@@ -258,13 +254,18 @@ a {
   display: inline-block;
   font-size: 20px;
   margin-left: 42px;
+  text-decoration: underline;
+  color: #000;
 }
 
+/* ----- ABOUT (ОБ АУКЦИОНЕ) ----- */
 .about {
   display: flex;
   gap: 100px;
   width: 100%;
-  margin: 120px 0 180px;
+  margin-top: -20px;
+  margin-left: -20px;
+  margin-bottom: 200px;
   padding: 0 40px;
 }
 
@@ -309,15 +310,16 @@ a {
 }
 
 .about-text p {
-  font-size: 20px;
-  line-height: 1.2;
+  font-size: 18px;
+  line-height: 1.35;
 }
 
+/* ----- FOOTER (ПОДВАЛ) ----- */
 .footer {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  padding: 0px 50px;
+  padding: 10px 50px;
   gap: 20px;
 }
 
@@ -336,8 +338,8 @@ a {
   align-items: center;
   list-style: none;
   gap: 0;
-  font-size: 18px;
-  line-height: 1.4;
+  font-size: 16px;
+  line-height: 1.35;
 }
 
 .footer-nav-list a {
@@ -352,7 +354,16 @@ a {
   justify-self: end;
 }
 
-.footer-social-list img {
+.footer-social-list li {
   width: 48px;
   height: 48px;
+}
+
+.footer-social-list a {
+  display: block;
+}
+
+.footer-social-list img {
+  width: 100%;
+  height: auto;
 }
