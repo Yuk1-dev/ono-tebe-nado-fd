@@ -1,12 +1,14 @@
-/* ------------------ Общие стили ------------------ */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
   width: 1100px;
   margin: 0 auto;
-  /* font-family и другие общие свойства уже заданы в global.css, дублирование убрано */
+  font-family: 'Raleway', sans-serif;
+  background-color: #fff;
 }
 
 a {
@@ -14,15 +16,12 @@ a {
   color: #000;
 }
 
-/* Заглавные буквы через CSS */
-.title_cover h1 span,
-.lots_h2,
-.about_title,
-.button {
-  text-transform: uppercase;
+.active-nav-link {
+  text-decoration: none;
+  cursor: default;
+  pointer-events: none;
 }
 
-/* ------------------ Адреса (общий стиль) ------------------ */
 .address-common {
   display: flex;
   flex-direction: column;
@@ -31,316 +30,296 @@ a {
   line-height: 1.4;
   text-underline-offset: 4px;
 }
+
 .address-common a {
   text-decoration: underline;
   color: #000;
 }
+
 .address-common p {
   margin: 0;
 }
 
-/* ------------------ Активная ссылка ------------------ */
-.active-nav-link {
-  text-decoration: none;
-  cursor: default;
-  pointer-events: none;
-  font-weight: bold;
-}
-
-/* ------------------ Шапка ------------------ */
 .header {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  width: 1100px;
-  /* min-height удален, так как это не блок с фоновым изображением */
-  padding: 20px 0;
-  margin: 0 auto;
+  width: 100%;
+  padding: 20px 50px;
+  gap: 20px;
 }
 
-.header_anchor {
+.header-nav {
   justify-self: start;
-  padding-left: 50px;
 }
-.header_anchor ul {
+
+.header-nav-list {
   display: flex;
-  list-style-type: none;
+  list-style: none;
   gap: 0;
-  font-size: 18px;
-  line-height: 100%;
-  text-underline-offset: 3px;
-  padding: 0;
-  margin: 0;
 }
-.header_anchor li {
-  display: flex;
-  align-items: center;
+
+.header-nav-list li {
   list-style-type: circle;
   margin-left: 40px;
 }
-.header_anchor li:first-child {
+
+.header-nav-list li:first-child {
   list-style-type: none;
   margin-left: 0;
 }
 
-.header__logo {
+.header-nav-list a {
+  font-size: 18px;
+  line-height: 1;
+  text-underline-offset: 3px;
+}
+
+.header-logo {
   justify-self: center;
   display: block;
   width: 148px;
 }
-.logo_header {
-  display: block;
+
+.header-logo-image {
   width: 100%;
   height: auto;
 }
 
-/* Специфичные стили для адреса в хедере */
-.header .address-common {
-  gap: 4px;
+.header-address {
   justify-self: end;
-  padding-right: 50px;
-  width: 260px; /* фиксированная ширина, чтобы разрыв строки был по макету */
+  gap: 4px;
+  width: 260px;
 }
 
-
-/* ------------------ Секция Cover ------------------ */
-.cover_section {
+.cover-section {
   position: relative;
-  width: 1100px;
-  min-height: 757px; /* min-height допустим для блока с фоном */
+  width: 100%;
+  min-height: 757px;
   background-image: url('../images/cover.jpg');
   background-size: cover;
-  background-repeat: no-repeat;
   background-position: center;
-  color: white;
+  background-repeat: no-repeat;
+  padding: 165px 50px 51px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 165px 50px 51px 50px;
 }
 
-/* Единый класс для всех оверлеев с общей прозрачностью */
 .overlay {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background-color: #000;
-  inset: 0;
-  opacity: 0.6; /* прозрачность задана здесь, один раз для всех */
+  opacity: 0.6;
   z-index: 1;
 }
 
-.cover {
+.cover-title {
   position: relative;
   z-index: 2;
-  width: 100%;
-}
-
-.title_cover {
-  position: relative;
-  z-index: 2;
-}
-.title_cover h1 {
-  margin: 0;
-  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  color: #fff;
   font-weight: 700;
   font-size: 100px;
   line-height: 1.1;
   letter-spacing: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+  text-transform: uppercase;
 }
-.title_cover_left {
+
+.cover-title-left {
   align-self: flex-start;
 }
-.title_cover_center {
+
+.cover-title-center {
   align-self: center;
   margin-left: 40px;
 }
-.title_cover_right {
+
+.cover-title-right {
   align-self: flex-end;
   margin-right: -30px;
 }
 
-.discription {
+.cover-description {
   position: relative;
   z-index: 2;
-  margin-top: 100px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  width: 100%;
+  align-items: center;
+  margin-top: 100px;
 }
-.discription_text {
-  margin: 0;
-  font-weight: 400;
+
+.cover-description-text {
   font-size: 22px;
   line-height: 28px;
   text-transform: uppercase;
-  color: white;
+  color: #fff;
   word-spacing: 20px;
 }
-.button {
-  font-size: 22px;
+
+.cover-button {
   width: 256px;
   height: 51px;
-  background-color: transparent;
-  border: 1px solid white;
-  color: white;
-  padding: 1px 30px;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 22px;
+  text-transform: uppercase;
   cursor: pointer;
 }
 
-
-/* ------------------ Секция ЛОТЫ ------------------ */
 .lots {
-  margin: 180px 24px 173px 24px;
-  width: 1052px;
+  padding: 0 24px;
+  margin: 180px 0 173px;
 }
-.lots_h2 {
-  margin-left: 40px;
+
+.lots-title {
+  margin-left: 16px;
   margin-bottom: 25px;
   font-size: 40px;
-}
-.lots_list {
-  list-style-type: none;
-  display: flex;
-  gap: 25px;
-  margin-bottom: 34px;
-  padding: 0;
-  align-items: stretch;
-}
-.lots_item {
-  width: 334px;
-  min-height: 596px;
-  display: flex;
+  text-transform: uppercase;
 }
 
-/* Общий класс для карточек */
-.lots_article {
-  width: 100%;
-  position: relative;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+.lots-list {
   display: flex;
-  flex-direction: column;  /* для правильного распределения контента */
-  height: 100%;           /* чтобы карточка растягивалась на всю высоту li */
+  gap: 25px;
+  list-style: none;
+  margin-bottom: 34px;
 }
-/* Уникальные классы для фоновых изображений */
-.lots_article_film {
+
+.lots-item {
+  width: 334px;
+  min-height: 596px;
+}
+
+.lot-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  padding: 58px 40px 48px;
+}
+
+.lot-card-film {
   background-image: url('../images/card-lot-01.jpg');
 }
-.lots_article_book {
+
+.lot-card-book {
   background-image: url('../images/card-lot-02.jpg');
 }
-.lots_article_painting {
+
+.lot-card-painting {
   background-image: url('../images/card-lot-03.jpg');
 }
 
-.lots_article:hover .overlay {
+.lot-card-link {
+  position: relative;
+  z-index: 2;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.lot-card-title {
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: underline;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.lot-card-text {
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.lot-card:hover .overlay {
   opacity: 0.4;
 }
 
-.lots_link {
-  display: block;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  color: inherit;
-  position: relative;
-  z-index: 2;
-  flex-grow: 1; /* ссылка занимает все доступное место */
-}
-
-/* Стили контента теперь заданы для карточки, лишняя обертка lots_content удалена из HTML */
-.lots_article {
-  padding: 58px 40px 48px 40px;
-  justify-content: space-between;
-}
-.lots_article h3 {
-  color: white;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 22px;
-  text-decoration: underline;
-  line-height: 120%;
-  margin: 0 0 20px 0;
-}
-.lots_article p {
-  font-size: 20px;
-  line-height: 120%;
-  margin: 0;
-  color: white;
-}
-
-.see_more {
+.lots-more {
+  display: inline-block;
   font-size: 20px;
   margin-left: 42px;
 }
 
-/* ------------------ Секция ABOUT ------------------ */
 .about {
   display: flex;
-  width: 1052px;
   gap: 100px;
-  margin: 120px auto 180px auto;
-  align-items: flex-start;
+  width: 100%;
+  margin: 120px 0 180px;
+  padding: 0 40px;
 }
-.about_column:first-child {
+
+.about-column:first-child {
   flex-shrink: 0;
   width: 240px;
 }
-.about_column:last-child {
+
+.about-column:last-child {
   flex-grow: 1;
-  display: flex;
-  flex-direction: column;
 }
-.about_logo {
+
+.about-logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
   width: 240px;
   height: 240px;
+  background-color: #000;
   border-radius: 50%;
   margin-left: 45px;
 }
-.about_logo_image {
+
+.about-logo-image {
   width: 148px;
   height: auto;
 }
-.about_title {
+
+.about-title {
+  margin: 85px 0 100px 14px;
   font-size: 40px;
   font-weight: bold;
-  margin: 85px 0 100px 14px;
-}
-.about_text {
-  display: flex;
-  flex-direction: column;
-  max-width: 670px;
-  gap: 24px;
-  margin-left: 14px;
-}
-.about_text p {
-  font-size: 20px;
-  line-height: 1.2;
-  margin: 0;
+  text-transform: uppercase;
 }
 
-/* ------------------ Футер ------------------ */
+.about-text {
+  max-width: 670px;
+  margin-left: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.about-text p {
+  font-size: 20px;
+  line-height: 1.2;
+}
+
 .footer {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  align-items: center; /* выравнивание по центру для лучшего отображения на одной линии */
-  width: 1100px;
+  align-items: center;
   padding: 55px 50px;
-  gap: 20px; /* добавлен gap для надежности */
+  gap: 20px;
 }
 
-/* Стили для адреса в футере */
-.footer .address-common {
+.footer-address {
   gap: 0;
   text-align: left;
 }
@@ -348,34 +327,30 @@ a {
 .footer-nav {
   justify-self: center;
 }
+
 .footer-nav-list {
-  list-style: none;
   display: flex;
   flex-direction: column;
   align-items: center;
+  list-style: none;
   gap: 0;
   font-size: 18px;
   line-height: 1.4;
-  padding: 0;
-  margin: 0;
 }
+
 .footer-nav-list a {
   text-decoration: underline;
   color: #000;
 }
 
-.footer-social {
-  justify-self: end;
-}
 .footer-social-list {
-  list-style: none;
   display: flex;
   gap: 40px;
-  padding: 0;
-  margin: 0;
+  list-style: none;
+  justify-self: end;
 }
+
 .footer-social-list img {
   width: 48px;
   height: 48px;
-  display: block;
 }
