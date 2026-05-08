@@ -1,8 +1,12 @@
-/*                         общие стили                                      */
+/* ------------------ Общие стили ------------------ */
+* {
+  box-sizing: border-box;
+}
 
 body {
+  width: 1100px;
   margin: 0 auto;
-  font-family: 'Raleway', sans-serif;
+  /* font-family и другие общие свойства уже заданы в global.css, дублирование убрано */
 }
 
 a {
@@ -18,43 +22,46 @@ a {
   text-transform: uppercase;
 }
 
-/* Контакты (address) */
-.contact {
+/* ------------------ Адреса (общий стиль) ------------------ */
+.address-common {
   display: flex;
   flex-direction: column;
-  gap: 4px;
   font-size: 18px;
   font-style: normal;
   line-height: 1.4;
   text-underline-offset: 4px;
 }
-
-.contact a {
+.address-common a {
   text-decoration: underline;
   color: #000;
 }
-
-.contact p {
+.address-common p {
   margin: 0;
 }
 
-/* шапка */
+/* ------------------ Активная ссылка ------------------ */
+.active-nav-link {
+  text-decoration: none;
+  cursor: default;
+  pointer-events: none;
+  font-weight: bold;
+}
+
+/* ------------------ Шапка ------------------ */
 .header {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   width: 1100px;
-  min-height: 293px;
+  /* min-height удален, так как это не блок с фоновым изображением */
   padding: 20px 0;
   margin: 0 auto;
-  box-sizing: border-box;
 }
 
 .header_anchor {
   justify-self: start;
   padding-left: 50px;
 }
-
 .header_anchor ul {
   display: flex;
   list-style-type: none;
@@ -65,28 +72,15 @@ a {
   padding: 0;
   margin: 0;
 }
-
 .header_anchor li {
   display: flex;
   align-items: center;
   list-style-type: circle;
   margin-left: 40px;
 }
-
 .header_anchor li:first-child {
   list-style-type: none;
   margin-left: 0;
-}
-
-.header_anchor a.active,
-.anchor a.active {
-  text-decoration: none;
-  cursor: default;
-  pointer-events: none;
-}
-
-.circle_li {
-  list-style: none;
 }
 
 .header__logo {
@@ -94,25 +88,26 @@ a {
   display: block;
   width: 148px;
 }
-
 .logo_header {
   display: block;
   width: 100%;
   height: auto;
 }
 
-.header .contact {
+/* Специфичные стили для адреса в хедере */
+.header .address-common {
+  gap: 4px;
   justify-self: end;
   padding-right: 50px;
-  margin-right: 45px;
-  width: 260px;
+  width: 260px; /* фиксированная ширина, чтобы разрыв строки был по макету */
 }
 
-/*              Секция Cover               */
+
+/* ------------------ Секция Cover ------------------ */
 .cover_section {
   position: relative;
   width: 1100px;
-  min-height: 757px;
+  min-height: 757px; /* min-height допустим для блока с фоном */
   background-image: url('../images/cover.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -122,25 +117,17 @@ a {
   flex-direction: column;
   justify-content: space-between;
   padding: 165px 50px 51px 50px;
-  box-sizing: border-box;
 }
 
-/* Общий класс для всех оверлеев */
+/* Единый класс для всех оверлеев с общей прозрачностью */
 .overlay {
   position: absolute;
   width: 100%;
   height: 100%;
   background-color: #000;
   inset: 0;
+  opacity: 0.6; /* прозрачность задана здесь, один раз для всех */
   z-index: 1;
-}
-
-.overlay_cover {
-  opacity: 0.6;
-}
-
-.overlay_lots {
-  opacity: 0.6;
 }
 
 .cover {
@@ -152,11 +139,7 @@ a {
 .title_cover {
   position: relative;
   z-index: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
-
 .title_cover h1 {
   margin: 0;
   color: white;
@@ -168,16 +151,13 @@ a {
   flex-direction: column;
   gap: 30px;
 }
-
 .title_cover_left {
   align-self: flex-start;
 }
-
 .title_cover_center {
   align-self: center;
   margin-left: 40px;
 }
-
 .title_cover_right {
   align-self: flex-end;
   margin-right: -30px;
@@ -192,10 +172,8 @@ a {
   justify-content: space-between;
   width: 100%;
 }
-
 .discription_text {
   margin: 0;
-  font-style: normal;
   font-weight: 400;
   font-size: 22px;
   line-height: 28px;
@@ -203,7 +181,6 @@ a {
   color: white;
   word-spacing: 20px;
 }
-
 .button {
   font-size: 22px;
   width: 256px;
@@ -215,19 +192,18 @@ a {
   cursor: pointer;
 }
 
-/*               Секция ЛОТЫ                  */
+
+/* ------------------ Секция ЛОТЫ ------------------ */
 .lots {
   margin: 180px 24px 173px 24px;
   width: 1052px;
 }
-
 .lots_h2 {
   margin-left: 40px;
   margin-bottom: 25px;
   font-size: 40px;
 }
-
-.lots_background {
+.lots_list {
   list-style-type: none;
   display: flex;
   gap: 25px;
@@ -235,59 +211,55 @@ a {
   padding: 0;
   align-items: stretch;
 }
-
-/* Общие стили для всех карточек лотов */
 .lots_item {
   width: 334px;
   min-height: 596px;
+  display: flex;
+}
+
+/* Общий класс для карточек */
+.lots_article {
+  width: 100%;
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   display: flex;
+  flex-direction: column;  /* для правильного распределения контента */
+  height: 100%;           /* чтобы карточка растягивалась на всю высоту li */
 }
-
 /* Уникальные классы для фоновых изображений */
-.lots_item_1 {
+.lots_article_film {
   background-image: url('../images/card-lot-01.jpg');
 }
-
-.lots_item_2 {
+.lots_article_book {
   background-image: url('../images/card-lot-02.jpg');
 }
-
-.lots_item_3 {
+.lots_article_painting {
   background-image: url('../images/card-lot-03.jpg');
 }
 
-/* Ссылка-обёртка всей карточки */
+.lots_article:hover .overlay {
+  opacity: 0.4;
+}
+
 .lots_link {
   display: block;
   width: 100%;
   height: 100%;
   text-decoration: none;
   color: inherit;
-}
-
-.lots_link:hover .overlay_lots {
-  opacity: 0.4;
-}
-
-/* Контент карточки */
-.lots_content {
-  height: 100%;
-  color: white;
-  padding: 58px 40px 48px 40px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: left;
-  z-index: 5;
   position: relative;
+  z-index: 2;
+  flex-grow: 1; /* ссылка занимает все доступное место */
 }
 
-.lots_content h3 {
+/* Стили контента теперь заданы для карточки, лишняя обертка lots_content удалена из HTML */
+.lots_article {
+  padding: 58px 40px 48px 40px;
+  justify-content: space-between;
+}
+.lots_article h3 {
   color: white;
   text-transform: uppercase;
   font-weight: bold;
@@ -295,14 +267,12 @@ a {
   text-decoration: underline;
   line-height: 120%;
   margin: 0 0 20px 0;
-  display: block;
 }
-
-.lots_content p {
+.lots_article p {
   font-size: 20px;
   line-height: 120%;
   margin: 0;
-  z-index: 5;
+  color: white;
 }
 
 .see_more {
@@ -310,27 +280,23 @@ a {
   margin-left: 42px;
 }
 
-/* Секция 4 */
+/* ------------------ Секция ABOUT ------------------ */
 .about {
   display: flex;
   width: 1052px;
   gap: 100px;
   margin: 120px auto 180px auto;
   align-items: flex-start;
-  box-sizing: border-box;
 }
-
 .about_column:first-child {
   flex-shrink: 0;
   width: 240px;
 }
-
 .about_column:last-child {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
-
 .about_logo {
   display: flex;
   justify-content: center;
@@ -341,20 +307,15 @@ a {
   border-radius: 50%;
   margin-left: 45px;
 }
-
 .about_logo_image {
   width: 148px;
   height: auto;
 }
-
 .about_title {
   font-size: 40px;
   font-weight: bold;
-  margin-top: 85px;
-  margin-bottom: 100px;
-  margin-left: 14px;
+  margin: 85px 0 100px 14px;
 }
-
 .about_text {
   display: flex;
   flex-direction: column;
@@ -362,46 +323,31 @@ a {
   gap: 24px;
   margin-left: 14px;
 }
-
 .about_text p {
   font-size: 20px;
   line-height: 1.2;
   margin: 0;
 }
 
-/*                                   Футер                                              */
-
+/* ------------------ Футер ------------------ */
 .footer {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  align-items: start;
+  align-items: center; /* выравнивание по центру для лучшего отображения на одной линии */
   width: 1100px;
-  padding: 55px 50px 55px;
-  box-sizing: border-box;
+  padding: 55px 50px;
+  gap: 20px; /* добавлен gap для надежности */
 }
 
-.footer-contacts {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  font-size: 18px;
-  font-style: normal;
-  line-height: 1.38;
-}
-
-.footer-contacts a {
-  text-decoration: underline;
-  color: #000;
-}
-
-.footer-contacts p {
-  margin: 0;
+/* Стили для адреса в футере */
+.footer .address-common {
+  gap: 0;
+  text-align: left;
 }
 
 .footer-nav {
   justify-self: center;
 }
-
 .footer-nav-list {
   list-style: none;
   display: flex;
@@ -413,12 +359,6 @@ a {
   padding: 0;
   margin: 0;
 }
-
-.footer-nav-list li {
-  margin: 0;
-  padding: 0;
-}
-
 .footer-nav-list a {
   text-decoration: underline;
   color: #000;
@@ -427,7 +367,6 @@ a {
 .footer-social {
   justify-self: end;
 }
-
 .footer-social-list {
   list-style: none;
   display: flex;
@@ -435,16 +374,6 @@ a {
   padding: 0;
   margin: 0;
 }
-
-.footer-social-list li {
-  margin: 0;
-  padding: 0;
-}
-
-.footer-social-list a {
-  text-decoration: none;
-}
-
 .footer-social-list img {
   width: 48px;
   height: 48px;
