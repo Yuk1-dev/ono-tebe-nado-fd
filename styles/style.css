@@ -81,7 +81,7 @@ a {
   margin-right: 10px;
 }
 
-.header_anchor a.active{
+.header_anchor a.active {
   text-decoration: none;
   cursor: default;
   pointer-events: none;
@@ -278,7 +278,7 @@ a {
   position: relative;
 }
 
-.article_picture{
+.article_picture {
   height: 100%;
 
 }
