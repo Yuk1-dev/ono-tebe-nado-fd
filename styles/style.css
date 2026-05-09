@@ -1,331 +1,399 @@
-/* ===== ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ АУКЦИОНА ===== */
+/*                         общие стили                                      */
 
-/* ----- АКТИВНАЯ ССЫЛКА В МЕНЮ ----- */
-.active-nav-link {
+a {
+  text-decoration: underline;
+  color: #000;
+}
+
+/* Заглавные буквы через CSS */
+.title_cover h1 span,
+.lots_h2,
+.about_title,
+.button {
+  text-transform: uppercase;
+}
+
+/* Контакты (address) */
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 18px;
+  font-style: normal;
+  text-underline-offset: 4px;
+}
+
+.contact a {
+  text-decoration: underline;
+  color: #000;
+}
+
+.contact p {
+  margin: 0;
+}
+
+/* шапка */
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  width: 1100px;
+  /* min-height: 293px; */
+  padding: 95px 0px 90px 0px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.header_anchor {
+  justify-self: start;
+  padding-left: 50px;
+}
+
+
+
+.header_anchor ul {
+  display: flex;
+  list-style-type: none;
+  gap: 0;
+  font-size: 18px;
+  line-height: 100%;
+  text-underline-offset: 3px;
+  padding: 0;
+  margin: 0;
+}
+
+.header_anchor li {
+  display: flex;
+  align-items: center;
+  list-style-type: circle;
+  margin-left: 40px;
+}
+
+.header-nav-list {
+  display: flex;
+  font-size: 18px;
+  list-style: none;
+  margin-left: 50px;
+  gap: 10px;
+}
+
+.marker {
+  margin-right: 10px;
+}
+
+.header_anchor a.active{
   text-decoration: none;
   cursor: default;
   pointer-events: none;
 }
 
-/* ----- ОБЩИЙ СТИЛЬ ДЛЯ АДРЕСА ----- */
-.address-common {
-  display: flex;
-  flex-direction: column;
-  font-size: 16px;
-  font-style: normal;
-  line-height: 1.35;
-  letter-spacing: 0.2px;
-  text-underline-offset: 4px;
-}
-
-.address-common a {
-  text-decoration: underline;
-  color: #000;
-}
-
-.address-common p {
-  margin: 0;
-}
-
-/* ----- HEADER ----- */
-.header {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  width: 100%;
-  padding: 20px 50px;
-  margin-top: 70px;
-  margin-bottom: 70px;
-  gap: 20px;
-}
-
-.header-nav {
-  justify-self: start;
-}
-
-.header-nav-list {
-  display: flex;
+.circle_li {
   list-style: none;
-  gap: 0;
 }
 
-.header-nav-list li {
-  list-style-type: circle;
-  margin-left: 40px;
-}
-
-.header-nav-list li:first-child {
-  list-style-type: none;
-  margin-left: 0;
-}
-
-.header-nav-list a {
-  font-size: 16px;
-  line-height: 1.2;
-  letter-spacing: 0.3px;
-  text-underline-offset: 3px;
-  text-decoration: underline;
-  color: #000;
-}
-
-.header-logo {
+.header__logo {
   justify-self: center;
   display: block;
   width: 148px;
 }
 
-.header-logo-image {
-  width: 100%;
-  height: auto;
+.logo_header {
+  display: block;
+  width: 148px;
+  height: 105px;
 }
 
-.header-address {
+.header .contact {
   justify-self: end;
-  gap: 4px;
+  padding-right: 50px;
+  margin-right: 30px;
   width: 260px;
 }
 
-/* ----- COVER (СЕКЦИЯ С ЗАТЕМНЕНИЕМ) ----- */
-.cover-section {
+/*              Секция Cover               */
+.cover_section {
   position: relative;
-  width: 100%;
+  width: 1100px;
   min-height: 757px;
   background-image: url('../images/cover.jpg');
   background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
-  padding: 165px 50px 51px;
+  background-position: center;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 165px 50px 51px 50px;
+  box-sizing: border-box;
 }
 
+/* Общий класс для всех оверлеев */
 .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   background-color: #000;
-  opacity: 0.6;
+  inset: 0;
   z-index: 1;
+  opacity: 0.6;
 }
 
-.cover-title {
+.cover {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.title_cover {
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  color: #fff;
+  gap: 10px;
+}
+
+.title_cover h1 {
+  margin: 0;
+  color: white;
   font-weight: 700;
   font-size: 100px;
   line-height: 1.1;
   letter-spacing: 30px;
-  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-.cover-title-left {
+.title_cover_left {
   align-self: flex-start;
 }
 
-.cover-title-center {
+.title_cover_center {
   align-self: center;
   margin-left: 40px;
 }
 
-.cover-title-right {
+.title_cover_right {
   align-self: flex-end;
   margin-right: -30px;
 }
 
-.cover-description {
+.discription {
   position: relative;
   z-index: 2;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.cover-description-text {
+.discription_text {
+  margin: 0;
+  font-style: normal;
+  font-weight: 400;
   font-size: 22px;
   line-height: 28px;
   text-transform: uppercase;
-  color: #fff;
+  color: white;
   word-spacing: 20px;
 }
 
-.cover-button {
+.button {
+  font-size: 22px;
   width: 256px;
   height: 51px;
-  background: transparent;
-  border: 1px solid #fff;
-  color: #fff;
-  font-size: 22px;
-  text-transform: uppercase;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 1px 30px;
   cursor: pointer;
-  font-family: inherit;
 }
 
-/* ----- LOTS (КАРТОЧКИ ЛОТОВ) ----- */
+/*               Секция ЛОТЫ                  */
 .lots {
-  padding: 0 24px;
-  margin: 180px 0 173px;
+  margin: 180px 24px 173px 24px;
+  width: 1052px;
 }
 
-.lots-title {
-  margin-left: 16px;
+.lots_h2 {
+  margin-left: 40px;
   margin-bottom: 25px;
   font-size: 40px;
-  text-transform: uppercase;
 }
 
-.lots-list {
+.lots_background {
+  list-style-type: none;
   display: flex;
   gap: 25px;
-  list-style: none;
   margin-bottom: 34px;
+  padding: 0;
+  align-items: stretch;
 }
 
-.lots-item {
+/* Общие стили для всех карточек лотов */
+.lots_item {
   width: 334px;
   min-height: 596px;
-}
-
-.lot-card {
   position: relative;
-  width: 100%;
-  height: 100%;
   background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
+  background-position: center;
   display: flex;
-  flex-direction: column;
-  padding: 58px 40px 48px;
 }
 
-.lot-card-film {
+/* Уникальные классы для фоновых изображений */
+.lots_item_film {
   background-image: url('../images/card-lot-01.jpg');
 }
 
-.lot-card-book {
+.lots_item_book {
   background-image: url('../images/card-lot-02.jpg');
 }
 
-.lot-card-painting {
+.lots_item_picture {
   background-image: url('../images/card-lot-03.jpg');
 }
 
-.lot-card-link {
-  position: relative;
-  z-index: 2;
+/* Ссылка-обёртка всей карточки */
+.lots_link {
+  display: block;
+  width: 100%;
+  height: 100%;
   text-decoration: none;
   color: inherit;
+}
+
+/* Контент карточки */
+.lots_content {
+  height: 100%;
+  color: white;
+  padding: 58px 40px 48px 40px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  text-align: left;
+  z-index: 5;
+  position: relative;
+}
+
+.article_picture{
   height: 100%;
+
 }
 
-.lot-card-title {
-  color: #fff;
-  font-size: 22px;
-  font-weight: 700;
+.lots_content h3 {
+  color: white;
   text-transform: uppercase;
+  font-weight: bold;
+  font-size: 22px;
   text-decoration: underline;
-  line-height: 1.25;
-  letter-spacing: 0.5px;
-  margin-bottom: 24px;
+  line-height: 120%;
+  margin: 0 0 20px 0;
+  display: block;
 }
 
-.lot-card-text {
-  color: #fff;
-  font-size: 20x;
-  line-height: 1.2;
-  letter-spacing: 0.2px;
+.lots_content p {
+  font-size: 20px;
+  line-height: 120%;
+  margin: 0;
+  z-index: 5;
 }
 
-.lot-card:hover .overlay {
-  opacity: 0.4;
-}
-
-.lots-more {
-  display: inline-block;
+.see_more {
   font-size: 20px;
   margin-left: 42px;
-  text-decoration: underline;
-  color: #000;
 }
 
-/* ----- ABOUT (ОБ АУКЦИОНЕ) ----- */
+/* Секция 4 */
 .about {
   display: flex;
+  width: 1052px;
   gap: 100px;
-  width: 100%;
-  margin-top: -20px;
-  margin-left: -20px;
-  margin-bottom: 200px;
-  padding: 0 40px;
+  margin: 120px auto 180px auto;
+  align-items: flex-start;
+  box-sizing: border-box;
 }
 
-.about-column:first-child {
+.about_column:first-child {
   flex-shrink: 0;
   width: 240px;
 }
 
-.about-column:last-child {
+.about_column:last-child {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-.about-logo {
+.about_logo {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: black;
   width: 240px;
   height: 240px;
-  background-color: #000;
   border-radius: 50%;
   margin-left: 45px;
+  margin-top: -20px;
 }
 
-.about-logo-image {
+.about_logo_image {
   width: 148px;
   height: auto;
 }
 
-.about-title {
-  margin: 85px 0 100px 14px;
+.about_title {
   font-size: 40px;
   font-weight: bold;
-  text-transform: uppercase;
+  margin-top: 85px;
+  margin-bottom: 100px;
+  margin-left: 14px;
 }
 
-.about-text {
-  max-width: 670px;
-  margin-left: 14px;
+.about_text {
   display: flex;
   flex-direction: column;
+  max-width: 670px;
   gap: 24px;
+  margin-left: 14px;
 }
 
-.about-text p {
-  font-size: 18px;
-  line-height: 1.35;
+.about_text p {
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 0;
 }
 
-/* ----- FOOTER (ПОДВАЛ) ----- */
+/*                                   Футер                                              */
+
 .footer {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  padding: 10px 50px;
-  gap: 20px;
+  align-items: start;
+  width: 1100px;
+  padding: 0 50px 82px 50px ;
+  box-sizing: border-box;
 }
 
-.footer-address {
-  gap: 0;
-  text-align: left;
+.footer-contacts {
+  line-height: 1.4;
+  
+
+}
+
+.break {
+  display: block;
+}
+
+.footer-contacts a {
+  text-decoration: underline;
+  color: #000;
+}
+
+.footer-contacts p {
+  margin: 0;
 }
 
 .footer-nav {
@@ -333,13 +401,20 @@
 }
 
 .footer-nav-list {
+  list-style: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  list-style: none;
   gap: 0;
-  font-size: 16px;
-  line-height: 1.35;
+  font-size: 18px;
+  line-height: 1.4;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav-list li {
+  margin: 0;
+  padding: 0;
 }
 
 .footer-nav-list a {
@@ -347,23 +422,30 @@
   color: #000;
 }
 
-.footer-social-list {
-  display: flex;
-  gap: 40px;
-  list-style: none;
+.footer-social {
   justify-self: end;
 }
 
+.footer-social-list {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  padding: 0;
+  margin: 0;
+}
+
 .footer-social-list li {
-  width: 48px;
-  height: 48px;
+  margin: 0;
+  padding: 0;
 }
 
 .footer-social-list a {
-  display: block;
+  text-decoration: none;
 }
 
 .footer-social-list img {
-  width: 100%;
-  height: auto;
+  width: 48px;
+  height: 48px;
+  display: block;
 }
+
