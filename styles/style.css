@@ -388,14 +388,10 @@ a {
   display: block;
 }
 
-
-
 .footer-contacts p {
-
-  width: 250px;  
+  width: 250px;
   margin: 0;
 }
-
 .footer-nav {
   justify-self: center;
 }
