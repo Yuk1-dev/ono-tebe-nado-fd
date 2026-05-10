@@ -2,10 +2,14 @@
 
 a {
   text-decoration: underline;
+  text-underline-offset: 4px;
   color: #000;
 }
 
-/* Заглавные буквы через CSS */
+.active {
+  text-decoration: none;
+}
+
 .title_cover h1 span,
 .lots_h2,
 .about_title,
@@ -13,7 +17,6 @@ a {
   text-transform: uppercase;
 }
 
-/* Контакты (address) */
 .contact {
   display: flex;
   flex-direction: column;
@@ -72,13 +75,14 @@ a {
 .header-nav-list {
   display: flex;
   font-size: 18px;
-  list-style: none;
-  margin-left: 50px;
-  gap: 10px;
+  list-style-type: circle;
+  padding: 0;
+  margin: 0 0 0 55px;
+  gap: 40px;
 }
 
-.marker {
-  margin-right: 10px;
+.header-nav-list li:first-child {
+  list-style-type: none;
 }
 
 .header_anchor a.active {
@@ -243,19 +247,18 @@ a {
 }
 
 /* Уникальные классы для фоновых изображений */
-.lots_item_film {
+.bg_film {
   background-image: url('../images/card-lot-01.jpg');
 }
 
-.lots_item_book {
+.bg_book {
   background-image: url('../images/card-lot-02.jpg');
 }
 
-.lots_item_picture {
+.bg_picture {
   background-image: url('../images/card-lot-03.jpg');
 }
 
-/* Ссылка-обёртка всей карточки */
 .lots_link {
   display: block;
   width: 100%;
@@ -264,7 +267,6 @@ a {
   color: inherit;
 }
 
-/* Контент карточки */
 .lots_content {
   height: 100%;
   color: white;
@@ -278,9 +280,8 @@ a {
   position: relative;
 }
 
-.article_picture {
+.article {
   height: 100%;
-
 }
 
 .lots_content h3 {
@@ -387,12 +388,10 @@ a {
   display: block;
 }
 
-.footer-contacts a {
-  text-decoration: underline;
-  color: #000;
-}
+
 
 .footer-contacts p {
+  width: 250px;  
   margin: 0;
 }
 
@@ -418,7 +417,6 @@ a {
 }
 
 .footer-nav-list a {
-  text-decoration: underline;
   color: #000;
 }
 
