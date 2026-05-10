@@ -380,8 +380,6 @@ a {
 
 .footer-contacts {
   line-height: 1.4;
-  
-
 }
 
 .break {
@@ -392,6 +390,7 @@ a {
   width: 250px;
   margin: 0;
 }
+
 .footer-nav {
   justify-self: center;
 }
